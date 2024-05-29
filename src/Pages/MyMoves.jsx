@@ -241,18 +241,43 @@ const MyMoves = () => {
                               textAlign="left"
                               fontWeight={"bold"}
                               color={"red"}
+                              display={"flex"}
+                              gap={2}
                             >
                               {item.displayName}
+                              <div
+                                style={{
+                                  border: "2px solid red",
+                                  padding: "5px",
+                                  height: "25px",
+                                  width: "25px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  borderRadius: "50px",
+                                  background: "red",
+                                  color: "white",
+                                }}
+                              >
+                                {item.category.length}
+                              </div>
                             </Box>
                             <AccordionIcon />
                           </AccordionButton>
                         </h2>
-                        <AccordionPanel pb={4}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
+                        <AccordionPanel
+                          pb={4}
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          {item.category.map((cat, catIndex) => (
+                            <div key={catIndex} style={{ fontWeight: "bold" }}>
+                              {cat.displayName}
+                              <div>{cat.items.displayName}</div>
+                            </div>
+                          ))}
                         </AccordionPanel>
                       </AccordionItem>
                     ))}
