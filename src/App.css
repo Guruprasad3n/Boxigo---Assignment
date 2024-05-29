@@ -1,0 +1,42 @@
+#root {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1440px;
+}
+
+.app {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 97.2vh;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.content {
+  margin-left: 20%;
+  padding: 10px;
+  height: 95vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex: 5;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="checkbox"] {
+  accent-color: red;
+}

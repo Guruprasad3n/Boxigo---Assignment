@@ -1,0 +1,17 @@
+.sidebar > button {
+    background: none;
+    padding: 20px 0;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    text-align: left;
+  }
+  
+  /* .sidebar > button:hover {
+    border-left: 3px solid red;
+  } */
+  
+  .sidebar > button.active {
+    border-left: 3px solid red;
+  }
+  
