@@ -23,8 +23,17 @@ const MyMoves = () => {
   const [expandedMove, setExpandedMove] = useState(null);
 
   useEffect(() => {
+    // fetch("https://test.api.boxigo.in/sample-data/")
+    //   .then((response) => response.json())
+    //   .then((data) => setData(data.Customer_Estimate_Flow))
+    //   .catch((error) => console.error("Error fetching data:", error));
     fetch("http://test.api.boxigo.in/sample-data/")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => setData(data.Customer_Estimate_Flow))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -32,7 +41,6 @@ const MyMoves = () => {
   const toggleDetails = (id) => {
     setExpandedMove(expandedMove === id ? null : id);
   };
-  console.log(data);
 
   return (
     <div>
@@ -50,7 +58,7 @@ const MyMoves = () => {
                 style={{
                   display: "flex",
                   gap: "10px",
-                  marginBottom: "10px",
+                  marginBottom: "15px",
                   justifyContent: "space-between",
                   padding: "10px",
                   alignItems: "center",
@@ -73,7 +81,7 @@ const MyMoves = () => {
                 </div>
               </div>
 
-              <div className="bottomBar">
+              <div className="bottomBar" style={{ marginBottom: "15px" }}>
                 <div className="icon_text">
                   <p>
                     <IoMdHome style={{ color: "red", fontSize: "1.5rem" }} />
@@ -130,7 +138,7 @@ const MyMoves = () => {
               <div>
                 <div
                   style={{
-                    marginBottom: "10px",
+                    marginBottom: "15px",
                     display: "flex",
                     alignItems: "center",
                     gap: "10px",
@@ -221,14 +229,16 @@ const MyMoves = () => {
                     </div>
                   </Flex>
 
-                  <div
-                    style={{
-                      fontWeight: "bold",
-                      marginTop: "5px",
-                    }}
-                  >
-                    Inventory Details
-                  </div>
+                  <Flex justifyContent={"space-between"} mt={5} mb={2}>
+                    <Text fontWeight={"bold"}>Inventory Details</Text>
+                    <Button
+                      background={"black"}
+                      color={"white"}
+                      _hover={"none"}
+                    >
+                      Edit Inventory
+                    </Button>
+                  </Flex>
 
                   <Accordion allowToggle>
                     {move.items.inventory.map((item, index) => (
@@ -269,15 +279,47 @@ const MyMoves = () => {
                           pb={4}
                           style={{
                             display: "flex",
-                            justifyContent: "space-between",
+                            flexWrap: "wrap",
+                            alignItems: "flex-start",
+                            // justifyContent: "space-evenly",
+                            gap: "50px",
                           }}
                         >
-                          {item.category.map((cat, catIndex) => (
-                            <div key={catIndex} style={{ fontWeight: "bold" }}>
-                              {cat.displayName}
-                              <div>{cat.items.displayName}</div>
-                            </div>
-                          ))}
+                          {item.category
+                            .filter((cat) =>
+                              cat.items.some((ite) => ite.qty > 0)
+                            )
+                            .map((cat, catIndex) => (
+                              <div
+                                key={catIndex}
+                                style={{ fontWeight: "bold" }}
+                              >
+                                {cat.displayName}
+                                {cat.items
+                                  .filter((ite) => ite.qty > 0)
+                                  .map((ite) => (
+                                    <div key={ite.uniqueId}>
+                                      <div
+                                        style={{
+                                          fontWeight: "400",
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                        }}
+                                      >
+                                        {ite.displayName}{" "}
+                                        <span
+                                          style={{
+                                            fontWeight: "bold",
+                                            marginLeft: "20px",
+                                          }}
+                                        >
+                                          {ite.qty}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  ))}
+                              </div>
+                            ))}
                         </AccordionPanel>
                       </AccordionItem>
                     ))}
