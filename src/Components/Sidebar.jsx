@@ -10,25 +10,25 @@ function Sidebar({ activeSection, setActiveSection }) {
         onClick={() => setActiveSection("moves")}
         className={activeSection === "moves" ? "active" : ""}
       >
-        <FaTruckArrowRight /> My Moves
+        <FaTruckArrowRight /> <span>My Moves</span>
       </button>
       <button
         onClick={() => setActiveSection("profile")}
         className={activeSection === "profile" ? "active" : ""}
       >
-        <FaUser /> My Profile
+        <FaUser /> <span>My Profile</span>
       </button>
       <button
         onClick={() => setActiveSection("quote")}
         className={activeSection === "quote" ? "active" : ""}
       >
-        <FaCalculator /> Get Quote
+        <FaCalculator /> <span>Get Quote</span>
       </button>
       <button
         onClick={() => setActiveSection("logout")}
         className={activeSection === "logout" ? "active" : ""}
       >
-        <RiLogoutCircleFill /> Logout
+        <RiLogoutCircleFill /> <span>Logout</span>
       </button>
     </div>
   );
