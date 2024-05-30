@@ -298,7 +298,10 @@ const MyMoves = () => {
                                 {cat.items
                                   .filter((ite) => ite.qty > 0)
                                   .map((ite) => (
-                                    <div key={ite.uniqueId}>
+                                    <div
+                                      key={ite.uniqueId}
+                                      style={{ marginBottom: "10px" }}
+                                    >
                                       <div
                                         style={{
                                           fontWeight: "400",

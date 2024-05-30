@@ -1,32 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./App.css";
 import MyMoves from "./Pages/MyMoves";
 import MyProfile from "./Pages/MyProfile";
-import Sidebar from "./Components/Sidebar";
+import Navbar from "./Components/Sidebar";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("moves");
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case "moves":
-        return <MyMoves />;
-      case "profile":
-        return <MyProfile />;
-      case "quote":
-        return <div>Get Quote Section</div>;
-      case "logout":
-        return <div>Logout Section</div>;
-      default:
-        return <MyMoves />;
-    }
-  };
-
   return (
     <div className="app">
-      <Sidebar setActiveSection={setActiveSection} />
-      <div className="content">{renderSection()}</div>
+      <Navbar />
+      <div className="rightside">
+        <Routes>
+          <Route path="/" element={<MyMoves />} />
+          <Route path="/profile" element={<MyProfile />} />
+          <Route path="/quote" element={<MyMoves />} />
+          <Route path="/logout" />
+        </Routes>
+      </div>
     </div>
   );
 };

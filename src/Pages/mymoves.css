@@ -42,6 +42,10 @@
   padding: 5px 20px;
   border-radius: 5px;
 }
+.custom-checkbox {
+  
+  accent-color: red;
+}
 .buttons > button:first-child {
   background: none;
   border: 2px solid red;
