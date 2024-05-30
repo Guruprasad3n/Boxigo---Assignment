@@ -22,12 +22,13 @@ const MyMoves = () => {
   const [data, setData] = useState(null);
   const [expandedMove, setExpandedMove] = useState(null);
 
+  console.log(import.meta.env.VITE_KEY_API_URL, "App");
   useEffect(() => {
     // fetch("https://test.api.boxigo.in/sample-data/")
     //   .then((response) => response.json())
     //   .then((data) => setData(data.Customer_Estimate_Flow))
     //   .catch((error) => console.error("Error fetching data:", error));
-    fetch("http://test.api.boxigo.in/sample-data/")
+    fetch(`${import.meta.env.VITE_KEY_API_URL}/sample-data/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -314,7 +315,14 @@ const MyMoves = () => {
                                           {ite.type
                                             .filter((option) => option.selected)
                                             .map((option) => (
-                                              <div style={{fontWeight:"bold", fontSize:".9rem"}}>{option.option}</div>
+                                              <div
+                                                style={{
+                                                  fontWeight: "bold",
+                                                  fontSize: ".9rem",
+                                                }}
+                                              >
+                                                {option.option}
+                                              </div>
                                             ))}
                                         </div>
                                         <span
