@@ -309,7 +309,14 @@ const MyMoves = () => {
                                           justifyContent: "space-between",
                                         }}
                                       >
-                                        {ite.displayName}{" "}
+                                        <div>
+                                          {ite.displayName}{" "}
+                                          {ite.type
+                                            .filter((option) => option.selected)
+                                            .map((option) => (
+                                              <div style={{fontWeight:"bold", fontSize:".9rem"}}>{option.option}</div>
+                                            ))}
+                                        </div>
                                         <span
                                           style={{
                                             fontWeight: "bold",
