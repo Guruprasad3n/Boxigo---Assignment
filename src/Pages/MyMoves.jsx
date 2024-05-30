@@ -23,12 +23,23 @@ const MyMoves = () => {
   const [expandedMove, setExpandedMove] = useState(null);
 
   console.log(import.meta.env.VITE_KEY_API_URL, "App");
+  // useEffect(() => {
+  //   fetch(`${import.meta.env.VITE_KEY_API_URL}/sample-data/`)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => setData(data.Customer_Estimate_Flow))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []);
   useEffect(() => {
-    // fetch("https://test.api.boxigo.in/sample-data/")
-    //   .then((response) => response.json())
-    //   .then((data) => setData(data.Customer_Estimate_Flow))
-    //   .catch((error) => console.error("Error fetching data:", error));
-    fetch(`${import.meta.env.VITE_KEY_API_URL}/sample-data/`)
+    const apiUrl = import.meta.env.MODE === "production"
+      ? import.meta.env.VITE_KEY_API_URL_PROD
+      : import.meta.env.VITE_KEY_API_URL_DEV;
+    console.log("API URL", apiUrl);
+    fetch(`${apiUrl}/sample-data/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
