@@ -13,7 +13,6 @@ import {
   AccordionPanel,
   Box,
   Button,
-  Container,
   Flex,
   Text,
 } from "@chakra-ui/react";
@@ -21,25 +20,8 @@ import {
 const MyMoves = () => {
   const [data, setData] = useState(null);
   const [expandedMove, setExpandedMove] = useState(null);
-
-  console.log(import.meta.env.VITE_KEY_API_URL, "App");
-  // useEffect(() => {
-  //   fetch(`${import.meta.env.VITE_KEY_API_URL}/sample-data/`)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => setData(data.Customer_Estimate_Flow))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
   useEffect(() => {
-    const apiUrl = import.meta.env.MODE === "production"
-      ? import.meta.env.VITE_KEY_API_URL_PROD
-      : import.meta.env.VITE_KEY_API_URL_DEV;
-    console.log("API URL", apiUrl);
-    fetch(`${apiUrl}/sample-data/`)
+    fetch(`${import.meta.env.VITE_KEY_API_URL}/sample-data/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -49,7 +31,6 @@ const MyMoves = () => {
       .then((data) => setData(data.Customer_Estimate_Flow))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   const toggleDetails = (id) => {
     setExpandedMove(expandedMove === id ? null : id);
   };
