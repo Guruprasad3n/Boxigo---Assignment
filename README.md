@@ -4,8 +4,8 @@ This project is a web application designed to manage and view data for Boxigo. I
 
 ## Deployment Links
 
-- Frontend: [Boxigo Frontend](https://boxigo-assignment-umber.vercel.app/)
-- Backend: [Boxigo Backend](https://backend-server-box.vercel.app/api/sample-data)
+- Frontend: [Bocigo](https://boxigogp.netlify.app/)
+- Backend: [Boxigo](https://server-boxigo.vercel.app/api/sample-data)
 
 ## Tech Stack
 
@@ -18,6 +18,5 @@ This project is a web application designed to manage and view data for Boxigo. I
 - **Interactive UI**: User-friendly interface with interactive components.
 - **Data Fetching**: Fetches data from the backend API and displays it in the frontend.
 - **Dynamic Routing**: Uses React Router for dynamic navigation.
-
 
 <!--  -->
