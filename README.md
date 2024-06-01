@@ -9,7 +9,7 @@ This project is a web application designed to manage and view data for Boxigo. I
 
 ## Tech Stack
 
-- **Frontend**: React, Chakra UI
+- **Frontend**: React, Chakra UI, React-Router-Dom, React-Icons
 - **Backend**: Express, Node.js
 
 ## Features
