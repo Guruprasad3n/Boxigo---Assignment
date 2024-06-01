@@ -24,4 +24,4 @@ This project is a web application designed to manage and view data for Boxigo. I
 
 <img src="./Desktop.png" alt="Desktop">
 <img src="./Tablet&Mobile.png" alt="Tablet and Mobile">
-<img src="./Tablet&Mobile.png" alt="Sidebar">
+<img src="./Sidebar.png" alt="Sidebar">
