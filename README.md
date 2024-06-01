@@ -4,8 +4,8 @@ This project is a web application designed to manage and view data for Boxigo. I
 
 ## Deployment Links
 
-- Frontend: [Bocigo](https://boxigogp.netlify.app/)
-- Backend: [Boxigo](https://server-boxigo.vercel.app/api/sample-data)
+- Frontend: [Link](https://boxigogp.netlify.app/)
+- Backend: [Link](https://server-boxigo.vercel.app/api/sample-data)
 
 ## Tech Stack
 
