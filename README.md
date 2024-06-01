@@ -19,4 +19,9 @@ This project is a web application designed to manage and view data for Boxigo. I
 - **Data Fetching**: Fetches data from the backend API and displays it in the frontend.
 - **Dynamic Routing**: Uses React Router for dynamic navigation.
 
-<!--  -->
+
+## Snaps
+
+<img src="./Desktop.png" alt="Desktop">
+<img src="./Tablet&Mobile.png" alt="Tablet and Mobile">
+<img src="./Tablet&Mobile.png" alt="Sidebar">
